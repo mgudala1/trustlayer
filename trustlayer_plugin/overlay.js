@@ -32,19 +32,29 @@ function stringSimilarity(a, b) {
   return matches / Math.max(aWords.length, bWords.length);
 }
 
+function roughFuzzyMatchScore(a, b) {
+  const aWords = a.split(" ").filter(Boolean);
+  const bWords = b.split(" ").filter(Boolean);
+  const shared = aWords.filter(word => bWords.includes(word));
+  return (shared.length / Math.max(aWords.length, bWords.length)) * 100;
+}
+
 function getBestMatch(currentProduct, data) {
   let highestScore = 0;
   let bestMatch = null;
   for (let entry of data) {
-    const score = stringSimilarity(currentProduct, entry.product.toLowerCase());
-    console.log(`🔬 Comparing '${entry.product}' with '${currentProduct}': Score = ${score}`);
-    if (score > highestScore) {
-      highestScore = score;
-      bestMatch = entry;
+    const names = [entry.product].concat(entry.aliases || []);
+    for (let name of names) {
+      const score = roughFuzzyMatchScore(currentProduct, name.toLowerCase());
+      console.log(`🔬 Comparing "${name}" with "${currentProduct}" → score = ${score}`);
+      if (score > highestScore && score >= 80) {
+        highestScore = score;
+        bestMatch = entry;
+      }
     }
   }
   console.log("🔧 Final match score:", highestScore);
-  return highestScore >= 0.9 ? bestMatch : null;
+  return bestMatch;
 }
 
 (function() {

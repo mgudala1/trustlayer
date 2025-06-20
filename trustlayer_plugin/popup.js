@@ -13,27 +13,31 @@ function detectCurrentProduct() {
   return title;
 }
 
+function roughFuzzyMatchScore(a, b) {
+  const aWords = a.split(" ").filter(Boolean);
+  const bWords = b.split(" ").filter(Boolean);
+  const shared = aWords.filter(word => bWords.includes(word));
+  return (shared.length / Math.max(aWords.length, bWords.length)) * 100;
+}
+
 function getBestMatch(currentProduct, data) {
   let bestMatch = null;
   let highestScore = 0;
 
   for (const entry of data) {
-    const entryName = entry.product.toLowerCase();
-    const score = stringSimilarity(currentProduct, entryName);
-    if (score > highestScore && score >= 0.9) {
-      bestMatch = entry;
-      highestScore = score;
+    const names = [entry.product].concat(entry.aliases || []);
+    for (const name of names) {
+      const score = roughFuzzyMatchScore(currentProduct, name.toLowerCase());
+      console.log(`🔬 Comparing "${name}" with "${currentProduct}" → score = ${score}`);
+      if (score > highestScore && score >= 80) {
+        bestMatch = entry;
+        highestScore = score;
+      }
     }
   }
 
+  console.log("🔧 Final match score:", highestScore);
   return bestMatch;
-}
-
-function stringSimilarity(a, b) {
-  const aWords = a.split(" ");
-  const bWords = b.split(" ");
-  const shared = aWords.filter(word => bWords.includes(word));
-  return shared.length / Math.max(aWords.length, bWords.length);
 }
 
 const currentProduct = detectCurrentProduct();
