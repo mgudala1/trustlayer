@@ -44,18 +44,20 @@ function roughFuzzyMatchScore(a, b) {
 function getBestMatch(currentProduct, data) {
   let highestScore = 0;
   let bestMatch = null;
+  const normCurrent = normalizeTitle(currentProduct);
   for (let entry of data) {
-    const names = [entry.product].concat(entry.aliases || []);
-    for (let name of names) {
-      const score = roughFuzzyMatchScore(currentProduct, name.toLowerCase());
-      console.log(`🔬 Comparing "${name}" with "${currentProduct}" → score = ${score}`);
-      if (score > highestScore && score >= 80) {
+    const allNames = [entry.product].concat(entry.aliases || []);
+    for (let name of allNames) {
+      const normName = normalizeTitle(name);
+      const score = roughFuzzyMatchScore(normCurrent, normName);
+      console.log(`🔬 Comparing "${normName}" with "${normCurrent}" → Score: ${score}`);
+      if (score > highestScore && score >= 75) {
         highestScore = score;
         bestMatch = entry;
       }
     }
   }
-  console.log("🔧 Final match score:", highestScore);
+  console.log("🎯 Best match found:", bestMatch?.product || "none");
   return bestMatch;
 }
 
