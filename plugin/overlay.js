@@ -42,7 +42,10 @@
         // Hardcoded for demo: cerave cleanser
         const entry = data.find(e => e.product.toLowerCase() === 'cerave cleanser');
         if (!entry) {
-          document.getElementById('trust-content').textContent = 'No data found.';
+          document.getElementById('trust-content').innerHTML = `
+            <div style="font-weight:bold;font-size:1.1em;">No trust data found for this product</div>
+            <div style="margin:8px 0; color:#888;">We couldn't find any Reddit or YouTube trust insights for this product yet.</div>
+          `;
           return;
         }
         const yt = entry.youtube || {};
