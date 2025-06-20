@@ -1,6 +1,11 @@
 [
   {
     "product": "cerave cleanser",
+    "aliases": [
+      "cerave face wash",
+      "cerave hydrating cleanser",
+      "cerave foaming cleanser"
+    ],
     "youtube": {
       "trust_score": 85,
       "top_pros": [
@@ -32,6 +37,11 @@
   },
   {
     "product": "olipop",
+    "aliases": [
+      "olipop soda",
+      "olipop drink",
+      "olipop prebiotic"
+    ],
     "youtube": {
       "trust_score": 82,
       "top_pros": [
@@ -63,6 +73,11 @@
   },
   {
     "product": "claritin allergy tablets",
+    "aliases": [
+      "claritin",
+      "claritin tablets",
+      "claritin allergy"
+    ],
     "youtube": {
       "trust_score": 79,
       "top_pros": [
@@ -91,6 +106,11 @@
   },
   {
     "product": "nyquil cold medicine",
+    "aliases": [
+      "nyquil",
+      "nyquil medicine",
+      "nyquil cold"
+    ],
     "youtube": {
       "trust_score": 88,
       "top_pros": [
@@ -120,6 +140,11 @@
   },
   {
     "product": "olaplex shampoo",
+    "aliases": [
+      "olaplex",
+      "olaplex hair",
+      "olaplex shampoo no.4"
+    ],
     "youtube": {
       "trust_score": 83,
       "top_pros": [
@@ -148,6 +173,11 @@
   },
   {
     "product": "magnesium supplement",
+    "aliases": [
+      "magnesium",
+      "magnesium pills",
+      "magnesium tablets"
+    ],
     "youtube": {
       "trust_score": 81,
       "top_pros": [
@@ -176,6 +206,11 @@
   },
   {
     "product": "cerave sunscreen",
+    "aliases": [
+      "cerave spf",
+      "cerave sunblock",
+      "cerave face sunscreen"
+    ],
     "youtube": {
       "trust_score": 84,
       "top_pros": [
@@ -204,6 +239,11 @@
   },
   {
     "product": "nike running shoes",
+    "aliases": [
+      "nike shoes",
+      "nike runners",
+      "nike sneakers"
+    ],
     "youtube": {
       "trust_score": 86,
       "top_pros": [
@@ -233,6 +273,11 @@
   },
   {
     "product": "protein powder",
+    "aliases": [
+      "whey protein",
+      "plant protein",
+      "protein supplement"
+    ],
     "youtube": {
       "trust_score": 80,
       "top_pros": [
@@ -262,6 +307,11 @@
   },
   {
     "product": "air purifier",
+    "aliases": [
+      "hepa purifier",
+      "air filter",
+      "room air purifier"
+    ],
     "youtube": {
       "trust_score": 87,
       "top_pros": [
