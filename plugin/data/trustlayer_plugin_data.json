@@ -1,0 +1,15 @@
+[
+  {
+    "product": "cerave cleanser",
+    "youtube": {
+      "trust_score": 85.0,
+      "top_pros": ["gentle", "hydrating"],
+      "top_cons": ["sticky"]
+    },
+    "reddit": {
+      "trust_score": 78.0,
+      "top_pros": ["non-irritating"],
+      "top_cons": ["overhyped"]
+    }
+  }
+]
