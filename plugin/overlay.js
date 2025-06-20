@@ -1,4 +1,20 @@
 // overlay.js for TrustLayer Chrome Extension
+function detectProductName() {
+  // 1. Check the document title
+  const fromTitle = document.title;
+  if (fromTitle && fromTitle.length > 5) return fromTitle.toLowerCase();
+
+  // 2. Check open graph metadata
+  const ogTitle = document.querySelector('meta[property="og:title"]')?.content;
+  if (ogTitle && ogTitle.length > 5) return ogTitle.toLowerCase();
+
+  // 3. Check Amazon product title (if on amazon)
+  const amazonTitle = document.getElementById("productTitle")?.innerText;
+  if (amazonTitle && amazonTitle.length > 5) return amazonTitle.toLowerCase();
+
+  return "unknown";
+}
+
 (function() {
   function isSupportedDomain() {
     const host = window.location.hostname;
@@ -39,8 +55,11 @@
     fetch(chrome.runtime.getURL('data/trustlayer_plugin_data.json'))
       .then(r => r.json())
       .then(data => {
-        // Hardcoded for demo: cerave cleanser
-        const entry = data.find(e => e.product.toLowerCase() === 'cerave cleanser');
+        const currentProduct = detectProductName();
+        console.log("🔍 Current product detected:", currentProduct);
+        const entry = data.find((e) => {
+          return currentProduct.includes(e.product.toLowerCase());
+        });
         if (!entry) {
           document.getElementById('trust-content').innerHTML = `
             <div style="font-weight:bold;font-size:1.1em;">No trust data found for this product</div>
@@ -60,7 +79,7 @@
           realTalkLink = entry.source.youtube;
         }
         document.getElementById('trust-content').innerHTML = `
-          <div style="font-weight:bold;font-size:1.1em;">cerave cleanser</div>
+          <div style="font-weight:bold;font-size:1.1em;">${entry.product}</div>
           <div style="margin:8px 0;">Trust Score: <b>${avg ? avg.toFixed(1) : '?' }%</b></div>
           <div><b>Top Pros:</b> ${pros.length ? pros.map(p => `<span style='color:#1a73e8;'>${p}</span>`).join(', ') : 'N/A'}</div>
           <div><b>Top Cons:</b> ${cons.length ? cons.map(c => `<span style='color:#d93025;'>${c}</span>`).join(', ') : 'N/A'}</div>
