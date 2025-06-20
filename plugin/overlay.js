@@ -15,6 +15,30 @@ function detectProductName() {
   return "unknown";
 }
 
+function stringSimilarity(a, b) {
+  const aWords = a.split(" ");
+  const bWords = b.split(" ");
+  const matches = aWords.filter(word => bWords.includes(word)).length;
+  return matches / Math.max(aWords.length, bWords.length);
+}
+
+function getBestMatch(currentProduct, trustData) {
+  let best = null;
+  let bestScore = 0;
+  const currentFirst = currentProduct.split(" ")[0];
+  for (const entry of trustData) {
+    const entryProduct = entry.product.toLowerCase();
+    const entryFirst = entryProduct.split(" ")[0];
+    if (currentFirst !== entryFirst) continue;
+    const score = stringSimilarity(currentProduct, entryProduct);
+    if (score > 0.85 && score > bestScore) {
+      best = entry;
+      bestScore = score;
+    }
+  }
+  return best;
+}
+
 (function() {
   function isSupportedDomain() {
     const host = window.location.hostname;
@@ -56,10 +80,9 @@ function detectProductName() {
       .then(r => r.json())
       .then(data => {
         const currentProduct = detectProductName();
+        const entry = getBestMatch(currentProduct, data);
         console.log("🔍 Current product detected:", currentProduct);
-        const entry = data.find((e) => {
-          return currentProduct.includes(e.product.toLowerCase());
-        });
+        console.log("🎯 Best match found:", entry?.product || "none");
         if (!entry) {
           document.getElementById('trust-content').innerHTML = `
             <div style="font-weight:bold;font-size:1.1em;">No trust data found for this product</div>
