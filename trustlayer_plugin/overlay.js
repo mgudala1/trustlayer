@@ -1,16 +1,26 @@
 // overlay.js for TrustLayer Chrome Extension
+function normalizeTitle(raw) {
+  let title = raw.toLowerCase();
+  title = title.replace(/amazon\.com|youtube\.com|target\.com/g, "");
+  title = title.replace(/[^a-z0-9 ]/g, " ");
+  title = title.replace(/\b(vs|with|for|and|the|a|an|review|official|site|homepage|home|buy|shop|on|in|by|from)\b/g, " ");
+  title = title.replace(/\s+/g, " ").trim();
+  console.log('🔍 Normalized title:', title);
+  return title;
+}
+
 function detectProductName() {
   // 1. Check the document title
   const fromTitle = document.title;
-  if (fromTitle && fromTitle.length > 5) return fromTitle.toLowerCase();
+  if (fromTitle && fromTitle.length > 5) return normalizeTitle(fromTitle);
 
   // 2. Check open graph metadata
   const ogTitle = document.querySelector('meta[property="og:title"]')?.content;
-  if (ogTitle && ogTitle.length > 5) return ogTitle.toLowerCase();
+  if (ogTitle && ogTitle.length > 5) return normalizeTitle(ogTitle);
 
   // 3. Check Amazon product title (if on amazon)
   const amazonTitle = document.getElementById("productTitle")?.innerText;
-  if (amazonTitle && amazonTitle.length > 5) return amazonTitle.toLowerCase();
+  if (amazonTitle && amazonTitle.length > 5) return normalizeTitle(amazonTitle);
 
   return "unknown";
 }
