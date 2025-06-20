@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "TrustLayer - Product Trust Scores",
+  "version": "1.0",
+  "description": "Adds trust scores and pros/cons from Reddit and YouTube next to product mentions.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js", "overlay.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data/trustlayer_plugin_data.json"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
