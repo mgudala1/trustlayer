@@ -40,18 +40,23 @@ function getBestMatch(currentProduct, data) {
   return bestMatch;
 }
 
+function showFallbackMessage() {
+  const output = document.getElementById("output");
+  output.innerHTML = `
+    <p><strong>❌ No trust data found for this product.</strong><br>
+    We couldn’t find Reddit or YouTube trust insights yet.</p>
+  `;
+}
+
 fetch(chrome.runtime.getURL("data/trustlayer_plugin_data.json"))
   .then(res => res.json())
   .then(data => {
     const match = getBestMatch(currentProduct, data);
     const output = document.getElementById("output");
     output.innerHTML = "";
-
     if (!match) {
-      output.innerHTML = `
-        <p><strong>No trust data found</strong><br>
-        We couldn't find any Reddit or YouTube trust insights for this product yet.</p>
-      `;
+      console.log("❌ No valid product match found for:", currentProduct);
+      showFallbackMessage();
       return;
     }
 
