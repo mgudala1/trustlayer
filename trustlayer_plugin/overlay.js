@@ -1,12 +1,14 @@
 // overlay.js for TrustLayer Chrome Extension
 function normalizeTitle(raw) {
   let title = raw.toLowerCase();
-  title = title.replace(/amazon\.com|youtube\.com|target\.com/g, "");
+  title = title.replace(/(amazon\.com|youtube\.com|walmart\.com)/g, "");
   title = title.replace(/[^a-z0-9 ]/g, " ");
-  title = title.replace(/\b(vs|with|for|and|the|a|an|review|official|site|homepage|home|buy|shop|on|in|by|from)\b/g, " ");
-  title = title.replace(/\s+/g, " ").trim();
-  console.log('🔍 Normalized title:', title);
-  return title;
+  let words = title.split(/\s+/).filter(Boolean);
+  const filler = ["the", "and", "vs", "for", "with", "by", "of", "a", "an", "in", "on", "at", "to", "from", "review", "official", "site", "homepage", "home", "buy", "shop"];
+  words = words.filter(w => !filler.includes(w));
+  const cleaned = words.join(" ").trim();
+  console.log("🔍 Cleaned product title:", cleaned);
+  return cleaned;
 }
 
 function detectProductName() {
