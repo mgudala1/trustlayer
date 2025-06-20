@@ -1,0 +1,8 @@
+praw
+pandas
+google-api-python-client
+youtube-comment-downloader
+google-api-python-client
+textblob
+vaderSentiment
+langdetect

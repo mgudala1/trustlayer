@@ -1,0 +1,78 @@
+[
+  {
+    "product": "unknown_product",
+    "top_pros": [
+      "clean",
+      "burn",
+      "allergy",
+      "dry",
+      "smell"
+    ],
+    "top_cons": [
+      "burn",
+      "allergy",
+      "clean",
+      "rash",
+      "dry"
+    ],
+    "trust_score": 80.2,
+    "confidence": 54466,
+    "total_comments": 55610
+  },
+  {
+    "product": "retinol",
+    "top_pros": [
+      "burn",
+      "clean",
+      "dry",
+      "moisturizing",
+      "allergy"
+    ],
+    "top_cons": [
+      "rash",
+      "dry",
+      "moisturizing"
+    ],
+    "trust_score": 81.8,
+    "confidence": 159,
+    "total_comments": 160
+  },
+  {
+    "product": "tide",
+    "top_pros": [
+      "rash",
+      "dry",
+      "moisturizing",
+      "acne",
+      "burn"
+    ],
+    "top_cons": [],
+    "trust_score": 100.0,
+    "confidence": 4,
+    "total_comments": 4
+  },
+  {
+    "product": "cerave",
+    "top_pros": [],
+    "top_cons": [],
+    "trust_score": 100.0,
+    "confidence": 1,
+    "total_comments": 1
+  },
+  {
+    "product": "magnesium",
+    "top_pros": [
+      "burn",
+      "allergy",
+      "dry",
+      "clean",
+      "rash"
+    ],
+    "top_cons": [
+      "allergy"
+    ],
+    "trust_score": 75.3,
+    "confidence": 291,
+    "total_comments": 300
+  }
+]

@@ -1,0 +1,36 @@
+title,score,url,comment
+Sunday Daily Thread: What's everyone working on this week?,2,https://www.reddit.com/r/Python/comments/1lbmt5u/sunday_daily_thread_whats_everyone_working_on/,"I put together a free downloadable PDF book: ""Working with Python"". It combines the various Python articles, tips and tricks that I've been publishing on my blog for 10+ years now. I recently went through them all revising, and expanding to bundle together. I welcome any feedback, and hope you might find it useful.
+
+https://mkaz.blog/working-with-python"
+Sunday Daily Thread: What's everyone working on this week?,2,https://www.reddit.com/r/Python/comments/1lbmt5u/sunday_daily_thread_whats_everyone_working_on/,"Plan is to release version 1.1 of [https://github.com/mrijk/py-predicate](https://github.com/mrijk/py-predicate), my library for creating composable predicates. Somewhat longer term plan: implementing more Clojure spec kind of functionality: instrumenting functions with specs based on predicates."
+Sunday Daily Thread: What's everyone working on this week?,2,https://www.reddit.com/r/Python/comments/1lbmt5u/sunday_daily_thread_whats_everyone_working_on/,A graphical interface in tkinter to display a low poly 3d model
+"Thursday Daily Thread: Python Careers, Courses, and Furthering Education!",15,https://www.reddit.com/r/Python/comments/1lewl21/thursday_daily_thread_python_careers_courses_and/,"Anybody else skydive out of their current career into a life of Python? Just me?
+
+I recently left the WordPress community after 20 years and am going full force into building with Python, notably Stattic which is a static site generator.
+
+I also wrote a free course on learning Python to help other PHP/WordPress devs transition easier into working with Python.
+
+For anyone else thinking of making the leap - I have zero advice, and I'm learning as I go 😂🤘"
+Design Patterns You Should Unlearn in Python-Part1,176,https://www.reddit.com/r/Python/comments/1lfcmky/design_patterns_you_should_unlearn_in_pythonpart1/,Brandon Rhodes's version of this: https://python-patterns.guide/
+Design Patterns You Should Unlearn in Python-Part1,176,https://www.reddit.com/r/Python/comments/1lfcmky/design_patterns_you_should_unlearn_in_pythonpart1/,"Personally I liked the style of writing, I’m not sure where this sentiment is coming from. Good job!"
+Design Patterns You Should Unlearn in Python-Part1,176,https://www.reddit.com/r/Python/comments/1lfcmky/design_patterns_you_should_unlearn_in_pythonpart1/,"Good post.  Full content seems to be in depth and not just another surface-level slopfest like often pollutes this sub.
+
+Yes design patterns are often misused in python.  Knowing other C-based languages helps you learn python syntax quickly.  But best practices are very different and take years to pickup."
+What Python GUI Lib do you like the most?,30,https://www.reddit.com/r/Python/comments/1lffudq/what_python_gui_lib_do_you_like_the_most/,"Big fan of [NiceGUI](https://nicegui.io/) at the moment, great docs and very responsive maintainers."
+What Python GUI Lib do you like the most?,30,https://www.reddit.com/r/Python/comments/1lffudq/what_python_gui_lib_do_you_like_the_most/,"[nicegui](https://nicegui.io/) works best for me.  Runs remote for web apps or local machine for standalone apps.  Easy to use, modern look, simple API that handles low-level operations so you can focus on program logic.
+
+Best part is there's a great community to help with suggestions if you get stuck.  Developers are very responsive and have commercial backing (they use nicegui to make apps for their robotics / automation  products).
+
+Other guis I tried are too low level, too complex (make you learn their complicated component heirarchy or config files, looking at you qt and kivy), dated, not cross platform, have a confusing API, or just not flexible enough.  With nicegui, simple things are easy and hard things are possible.
+
+I have no affiliation with nicegui except using it for several years and occasionally posting questions to their dev forum."
+What Python GUI Lib do you like the most?,30,https://www.reddit.com/r/Python/comments/1lffudq/what_python_gui_lib_do_you_like_the_most/,"Weirdly, I use pygame for a lot of things that are not games."
+Modelling Vasculature through BARWs,98,https://www.reddit.com/r/Python/comments/1lf4djo/modelling_vasculature_through_barws/,"This is a _very_ niche question -- I don't think that modeling BARWs or incorporating ODEs as boundary conditions is something that people ""usually"" do, especially in a general-purpose Python community vs one focused more on scientific or mathematical computing. It's also not primarily a Python question -- it sounds like you're asking for more general advice on implementing the algorithm.
+
+I don't have a good answer for you, but a few suggestions:
+
+* Do some searches for random walks in Python more generally. There are a lot of examples, and that will help you get a sense of the libraries and patterns used for numeric compuation.
+
+* Get some practice and build up your own skills by modeling simpler stochastic processes. As you run into challenges or problems, that will give you more specific questions you can ask, tied to specific tools you're using. Looking up answers to those questions will also help you find forums where you're more likely to find people familiar with the methods you're interested in.
+
+* If you want to see how other people have addressed more niche areas (like BARWs) search the terms on GitHub. If other people have worked on this, especially in academia, you might be able to find their code. Even if it isn't in Python, reading their implementations can help get you on the right track."
