@@ -10,6 +10,10 @@
       "trust_score": 78.0,
       "top_pros": ["non-irritating"],
       "top_cons": ["overhyped"]
+    },
+    "source": {
+      "reddit": "https://www.reddit.com/r/SkincareAddiction/comments/test_cerave/",
+      "youtube": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
   }
 ]
