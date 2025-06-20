@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TrustLayer</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 16px; min-width: 220px; }
+      .product { margin-bottom: 18px; }
+      .product-name { font-weight: bold; font-size: 1.1em; }
+      .score { margin-left: 4px; }
+      .yt { color: #1a73e8; }
+      .rd { color: #d93025; }
+    </style>
+  </head>
+  <body>
+    <div id="loading">Loading...</div>
+    <div id="products" style="display:none;"></div>
+    <script>
+      fetch(chrome.runtime.getURL("data/trustlayer_plugin_data.json"))
+        .then(r => r.json())
+        .then(data => {
+          document.getElementById('loading').style.display = 'none';
+          const productsDiv = document.getElementById('products');
+          productsDiv.style.display = '';
+          data.forEach(entry => {
+            const div = document.createElement('div');
+            div.className = 'product';
+            div.innerHTML = `
+              <div class="product-name">${entry.product}</div>
+              <div class="score yt">🟦 YouTube: ${entry.youtube?.trust_score ?? '?'}%</div>
+              <div class="score rd">🔴 Reddit: ${entry.reddit?.trust_score ?? '?'}%</div>
+            `;
+            productsDiv.appendChild(div);
+          });
+        });
+    </script>
+  </body>
+</html>
