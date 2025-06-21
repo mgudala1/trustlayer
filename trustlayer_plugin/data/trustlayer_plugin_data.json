@@ -1,342 +1,102 @@
 [
   {
-    "product": "cerave cleanser",
-    "aliases": [
-      "cerave face wash",
-      "cerave hydrating cleanser",
-      "cerave foaming cleanser"
-    ],
-    "youtube": {
-      "trust_score": 85,
-      "top_pros": [
-        "gentle",
-        "hydrating",
-        "non-irritating"
-      ],
-      "top_cons": [
-        "sticky",
-        "lacks foam"
-      ],
-      "total_comments": 72
+    "product_id": "olipop_vintage_cola",
+    "source": "reddit",
+    "timestamp": "2025-06-21T13:00:00Z",
+    "feedback_text": "Tastes just like classic cola but healthier!",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.92,
+    "summary_text": "Healthier alternative to regular cola with great taste.",
+    "metadata": {
+      "username_hash": "sha256:def456",
+      "verified_purchase": true,
+      "upvotes": 15,
+      "permalink": "https://reddit.com/r/food/comments/abc"
     },
-    "reddit": {
-      "trust_score": 77,
-      "top_pros": [
-        "effective for acne",
-        "affordable"
-      ],
-      "top_cons": [
-        "caused dryness"
-      ],
-      "total_comments": 41
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=IDH4PzjqnMk",
-      "reddit": "https://www.reddit.com/r/SkincareAddiction/comments/abc123/cerave_review/"
-    }
+    "tags": [
+      "food",
+      "soda",
+      "healthy"
+    ]
   },
   {
-    "product": "olipop",
-    "aliases": [
-      "olipop soda",
-      "olipop drink",
-      "olipop prebiotic"
-    ],
-    "youtube": {
-      "trust_score": 82,
-      "top_pros": [
-        "tastes good",
-        "low sugar",
-        "fun flavors"
-      ],
-      "top_cons": [
-        "too fizzy",
-        "expensive"
-      ],
-      "total_comments": 65
+    "product_id": "kirkland_almond_butter",
+    "source": "amazon",
+    "timestamp": "2025-06-21T14:10:00Z",
+    "feedback_text": "Creamy and affordable, great for smoothies.",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.88,
+    "summary_text": "Affordable, creamy almond butter ideal for smoothies.",
+    "metadata": {
+      "username_hash": "sha256:ghi789",
+      "verified_purchase": true,
+      "upvotes": 8,
+      "permalink": "https://amazon.com/review/123"
     },
-    "reddit": {
-      "trust_score": 75,
-      "top_pros": [
-        "helps digestion",
-        "healthy soda"
-      ],
-      "top_cons": [
-        "aftertaste"
-      ],
-      "total_comments": 32
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=SBameQHuLS0",
-      "reddit": "https://www.reddit.com/r/Supplements/comments/def456/olipop_vs_poppi/"
-    }
+    "tags": [
+      "food",
+      "nut_butter",
+      "breakfast"
+    ]
   },
   {
-    "product": "claritin allergy tablets",
-    "aliases": [
-      "claritin",
-      "claritin tablets",
-      "claritin allergy"
-    ],
-    "youtube": {
-      "trust_score": 79,
-      "top_pros": [
-        "non-drowsy",
-        "works quickly"
-      ],
-      "top_cons": [
-        "short relief time"
-      ],
-      "total_comments": 39
+    "product_id": "swiffer_wetjet",
+    "source": "youtube",
+    "timestamp": "2025-06-21T15:20:00Z",
+    "feedback_text": "Makes cleaning floors so much easier!",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.95,
+    "summary_text": "Efficient and easy-to-use floor cleaning tool.",
+    "metadata": {
+      "username_hash": "sha256:jkl012",
+      "verified_purchase": false,
+      "upvotes": 22,
+      "permalink": "https://youtube.com/watch?v=swifferreview"
     },
-    "reddit": {
-      "trust_score": 72,
-      "top_pros": [
-        "good for seasonal allergies"
-      ],
-      "top_cons": [
-        "less effective than zyrtec"
-      ],
-      "total_comments": 27
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=XxYyZz1122",
-      "reddit": "https://www.reddit.com/r/Allergies/comments/ghi789/claritin_vs_zyrtec/"
-    }
+    "tags": [
+      "household",
+      "cleaning",
+      "floors"
+    ]
   },
   {
-    "product": "nyquil cold medicine",
-    "aliases": [
-      "nyquil",
-      "nyquil medicine",
-      "nyquil cold"
-    ],
-    "youtube": {
-      "trust_score": 88,
-      "top_pros": [
-        "helps with sleep",
-        "eases cough"
-      ],
-      "top_cons": [
-        "groggy in morning"
-      ],
-      "total_comments": 50
+    "product_id": "bounty_paper_towels",
+    "source": "yelp",
+    "timestamp": "2025-06-21T16:05:00Z",
+    "feedback_text": "Absorbs spills quickly, lasts longer than other brands.",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.81,
+    "summary_text": "Durable and highly absorbent paper towels.",
+    "metadata": {
+      "username_hash": "sha256:mno345",
+      "verified_purchase": true,
+      "upvotes": 5,
+      "permalink": "https://yelp.com/review/456"
     },
-    "reddit": {
-      "trust_score": 74,
-      "top_pros": [
-        "effective",
-        "quick acting"
-      ],
-      "top_cons": [
-        "not for day use"
-      ],
-      "total_comments": 33
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=NyQ123456",
-      "reddit": "https://www.reddit.com/r/ColdMedicine/comments/nyq123/nyquil_reviews/"
-    }
+    "tags": [
+      "household",
+      "paper_towels",
+      "kitchen"
+    ]
   },
   {
-    "product": "olaplex shampoo",
-    "aliases": [
-      "olaplex",
-      "olaplex hair",
-      "olaplex shampoo no.4"
-    ],
-    "youtube": {
-      "trust_score": 83,
-      "top_pros": [
-        "restores damaged hair",
-        "salon quality"
-      ],
-      "top_cons": [
-        "pricey"
-      ],
-      "total_comments": 41
+    "product_id": "cerave_foaming_cleanser",
+    "source": "reddit",
+    "timestamp": "2025-06-21T12:30:00Z",
+    "feedback_text": "Great for my oily skin!",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.86,
+    "summary_text": "Improved oily skin with regular use.",
+    "metadata": {
+      "username_hash": "sha256:abc123",
+      "verified_purchase": true,
+      "upvotes": 30,
+      "permalink": "https://reddit.com/r/skincare/comments/xyz"
     },
-    "reddit": {
-      "trust_score": 76,
-      "top_pros": [
-        "reduces breakage"
-      ],
-      "top_cons": [
-        "caused buildup"
-      ],
-      "total_comments": 21
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=Olpx987654",
-      "reddit": "https://www.reddit.com/r/HaircareScience/comments/ola321/olaplex_shampoo_review/"
-    }
-  },
-  {
-    "product": "magnesium supplement",
-    "aliases": [
-      "magnesium",
-      "magnesium pills",
-      "magnesium tablets"
-    ],
-    "youtube": {
-      "trust_score": 81,
-      "top_pros": [
-        "helps with sleep",
-        "relieves muscle cramps"
-      ],
-      "top_cons": [
-        "can upset stomach"
-      ],
-      "total_comments": 46
-    },
-    "reddit": {
-      "trust_score": 73,
-      "top_pros": [
-        "natural calmness"
-      ],
-      "top_cons": [
-        "varies by type"
-      ],
-      "total_comments": 29
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=MgSu123",
-      "reddit": "https://www.reddit.com/r/Supplements/comments/mag321/magnesium_reviews/"
-    }
-  },
-  {
-    "product": "cerave sunscreen",
-    "aliases": [
-      "cerave spf",
-      "cerave sunblock",
-      "cerave face sunscreen"
-    ],
-    "youtube": {
-      "trust_score": 84,
-      "top_pros": [
-        "no white cast",
-        "non-greasy"
-      ],
-      "top_cons": [
-        "not water resistant"
-      ],
-      "total_comments": 38
-    },
-    "reddit": {
-      "trust_score": 70,
-      "top_pros": [
-        "sensitive skin safe"
-      ],
-      "top_cons": [
-        "pills under makeup"
-      ],
-      "total_comments": 19
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=CSun987",
-      "reddit": "https://www.reddit.com/r/SkincareAddiction/comments/cs123/cerave_sunscreen_review/"
-    }
-  },
-  {
-    "product": "nike running shoes",
-    "aliases": [
-      "nike shoes",
-      "nike runners",
-      "nike sneakers"
-    ],
-    "youtube": {
-      "trust_score": 86,
-      "top_pros": [
-        "lightweight",
-        "good cushioning"
-      ],
-      "top_cons": [
-        "narrow fit"
-      ],
-      "total_comments": 44
-    },
-    "reddit": {
-      "trust_score": 78,
-      "top_pros": [
-        "durable",
-        "popular models"
-      ],
-      "top_cons": [
-        "expensive"
-      ],
-      "total_comments": 35
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=NkRn123",
-      "reddit": "https://www.reddit.com/r/runningshoes/comments/nike123/best_nike_running_shoes/"
-    }
-  },
-  {
-    "product": "protein powder",
-    "aliases": [
-      "whey protein",
-      "plant protein",
-      "protein supplement"
-    ],
-    "youtube": {
-      "trust_score": 80,
-      "top_pros": [
-        "builds muscle",
-        "variety of flavors"
-      ],
-      "top_cons": [
-        "gritty texture"
-      ],
-      "total_comments": 61
-    },
-    "reddit": {
-      "trust_score": 76,
-      "top_pros": [
-        "affordable",
-        "easy mix"
-      ],
-      "top_cons": [
-        "sweetener taste"
-      ],
-      "total_comments": 42
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=PrPw123",
-      "reddit": "https://www.reddit.com/r/Fitness/comments/prot123/best_protein_powders/"
-    }
-  },
-  {
-    "product": "air purifier",
-    "aliases": [
-      "hepa purifier",
-      "air filter",
-      "room air purifier"
-    ],
-    "youtube": {
-      "trust_score": 87,
-      "top_pros": [
-        "quiet",
-        "filters well"
-      ],
-      "top_cons": [
-        "large footprint"
-      ],
-      "total_comments": 53
-    },
-    "reddit": {
-      "trust_score": 80,
-      "top_pros": [
-        "improved allergies",
-        "HEPA filter"
-      ],
-      "top_cons": [
-        "filter costs"
-      ],
-      "total_comments": 30
-    },
-    "source": {
-      "youtube": "https://www.youtube.com/watch?v=AirPu987",
-      "reddit": "https://www.reddit.com/r/airpurifiers/comments/air123/best_air_purifiers/"
-    }
+    "tags": [
+      "skincare",
+      "facewash",
+      "acne"
+    ]
   }
 ]
