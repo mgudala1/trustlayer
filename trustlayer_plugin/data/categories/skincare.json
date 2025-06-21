@@ -1,0 +1,22 @@
+[
+  {
+    "product_id": "cerave_foaming_cleanser",
+    "source": "reddit",
+    "timestamp": "2025-06-21T12:30:00Z",
+    "feedback_text": "Great for my oily skin!",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.86,
+    "summary_text": "Improved oily skin with regular use.",
+    "metadata": {
+      "username_hash": "sha256:abc123",
+      "verified_purchase": true,
+      "upvotes": 30,
+      "permalink": "https://reddit.com/r/skincare/comments/xyz"
+    },
+    "tags": [
+      "skincare",
+      "facewash",
+      "acne"
+    ]
+  }
+]
