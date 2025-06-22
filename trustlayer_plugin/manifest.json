@@ -12,7 +12,11 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["data/trustlayer_plugin_data.json"],
+      "resources": [
+        "data/categories/food.json",
+        "data/categories/household.json",
+        "data/categories/skincare.json"
+      ],
       "matches": ["<all_urls>"]
     }
   ],

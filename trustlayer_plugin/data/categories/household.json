@@ -1,0 +1,42 @@
+[
+  {
+    "product_id": "swiffer_wetjet",
+    "source": "youtube",
+    "timestamp": "2025-06-21T15:20:00Z",
+    "feedback_text": "Makes cleaning floors so much easier!",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.95,
+    "summary_text": "Efficient and easy-to-use floor cleaning tool.",
+    "metadata": {
+      "username_hash": "sha256:jkl012",
+      "verified_purchase": false,
+      "upvotes": 22,
+      "permalink": "https://youtube.com/watch?v=swifferreview"
+    },
+    "tags": [
+      "household",
+      "cleaning",
+      "floors"
+    ]
+  },
+  {
+    "product_id": "bounty_paper_towels",
+    "source": "yelp",
+    "timestamp": "2025-06-21T16:05:00Z",
+    "feedback_text": "Absorbs spills quickly, lasts longer than other brands.",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.81,
+    "summary_text": "Durable and highly absorbent paper towels.",
+    "metadata": {
+      "username_hash": "sha256:mno345",
+      "verified_purchase": true,
+      "upvotes": 5,
+      "permalink": "https://yelp.com/review/456"
+    },
+    "tags": [
+      "household",
+      "paper_towels",
+      "kitchen"
+    ]
+  }
+]

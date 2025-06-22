@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProductFeedback",
+  "type": "object",
+  "required": [
+    "product_id",
+    "source",
+    "timestamp",
+    "feedback_text",
+    "sentiment_label",
+    "authenticity_score",
+    "summary_text",
+    "metadata",
+    "tags"
+  ],
+  "properties": {
+    "product_id": {
+      "type": "string",
+      "description": "Canonical product slug (e.g., 'cerave_moisturizer')"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["reddit", "youtube", "yelp", "amazon", "forum"],
+      "description": "Data origin platform"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of original content"
+    },
+    "feedback_text": {
+      "type": "string",
+      "description": "Raw user comment or review"
+    },
+    "sentiment_label": {
+      "type": "string",
+      "enum": ["positive", "negative", "neutral"],
+      "description": "Model-assigned sentiment label"
+    },
+    "authenticity_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score of authenticity (0.0–1.0)"
+    },
+    "summary_text": {
+      "type": "string",
+      "description": "AI-generated summary of feedback"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "username_hash": { "type": "string" },
+        "verified_purchase": { "type": "boolean" },
+        "upvotes": { "type": "integer" },
+        "comment_id": { "type": "string" },
+        "permalink": { "type": "string", "format": "uri" }
+      },
+      "required": ["username_hash"]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Keywords for category or topic matching"
+    }
+  }
+}

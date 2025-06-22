@@ -1,44 +1,41 @@
 function normalizeTitle(raw) {
-  let title = raw.toLowerCase();
-  title = title.replace(/(amazon\.com|youtube\.com|walmart\.com)/g, "");
-  title = title.replace(/[^a-z0-9 ]/g, " ");
-  let words = title.split(/\s+/).filter(Boolean);
-  const filler = ["the", "and", "vs", "for", "with", "by", "of", "a", "an", "in", "on", "at", "to", "from", "review", "official", "site", "homepage", "home", "buy", "shop"];
-  words = words.filter(w => !filler.includes(w));
-  const cleaned = words.join(" ").trim();
-  console.log("🔍 Cleaned product title:", cleaned);
+  return raw
+    .toLowerCase()
+    .replace(/(amazon\.com|walmart\.com|–|:).*/g, "")
+    .replace(/\b\d+(mg|ml|oz|count|pack|tablets|pills|ct)\b/g, "")
+    .replace(/[^a-z0-9 ]/g, "")
+    .split(" ")
+    .filter(w => !["the", "and", "vs", "for", "with", "by", "of", "daily", "non", "drowsy"].includes(w))
+    .slice(0, 8)
+    .join(" ")
+    .trim();
+}
+
+function detectProductName() {
+  const h1 = document.querySelector("h1");
+  const fallback = document.title;
+  const raw = h1?.textContent || fallback;
+  const cleaned = normalizeTitle(raw);
+  console.log("🔍 Detected product (raw):", raw);
+  console.log("✅ Normalized product:", cleaned);
   return cleaned;
 }
 
-const currentProduct = normalizeTitle(document.title);
-console.log("🔍 Cleaned product title:", currentProduct);
-
-function roughFuzzyMatchScore(a, b) {
-  const aWords = a.split(" ").filter(Boolean);
-  const bWords = b.split(" ").filter(Boolean);
-  const shared = aWords.filter(word => bWords.includes(word));
-  return (shared.length / Math.max(aWords.length, bWords.length)) * 100;
-}
-
-function getBestMatch(currentProduct, data) {
-  let bestMatch = null;
-  let highestScore = 0;
-  const normCurrent = normalizeTitle(currentProduct);
-  for (const entry of data) {
-    const allNames = [entry.product].concat(entry.aliases || []);
-    for (const name of allNames) {
-      const normName = normalizeTitle(name);
-      const score = roughFuzzyMatchScore(normCurrent, normName);
-      console.log(`🔬 Comparing "${normName}" with "${normCurrent}" → Score: ${score}`);
-      if (score > highestScore && score >= 75) {
-        bestMatch = entry;
-        highestScore = score;
-      }
-    }
-  }
-  console.log("🎯 Best match found:", bestMatch?.product || "none");
-  return bestMatch;
-}
+const productTitle = detectProductName();
+const fetchUrl = `https://curly-chainsaw-jjjjv4qpqj7fp474-8000.app.github.dev/match?title=${encodeURIComponent(productTitle)}`;
+console.log('TrustLayer fetch URL:', fetchUrl);
+fetch(fetchUrl)
+  .then(res => {
+    if (!res.ok) throw new Error('No match');
+    return res.json();
+  })
+  .then(match => {
+    renderPopup(match);
+  })
+  .catch((err) => {
+    console.error('TrustLayer fetch error:', err);
+    showFallbackMessage();
+  });
 
 function showFallbackMessage() {
   const output = document.getElementById("output");
@@ -48,23 +45,14 @@ function showFallbackMessage() {
   `;
 }
 
-fetch(chrome.runtime.getURL("data/trustlayer_plugin_data.json"))
-  .then(res => res.json())
-  .then(data => {
-    const match = getBestMatch(currentProduct, data);
-    const output = document.getElementById("output");
-    output.innerHTML = "";
-    if (!match) {
-      console.log("❌ No valid product match found for:", currentProduct);
-      showFallbackMessage();
-      return;
-    }
-
-    output.innerHTML = `
-      <div class="score">
-        <div class="label">${match.product}</div>
-        🟦 YouTube: ${match.youtube?.trust_score ?? "N/A"}%<br>
-        🔴 Reddit: ${match.reddit?.trust_score ?? "N/A"}%
-      </div>
-    `;
-  });
+function renderPopup(match) {
+  const output = document.getElementById("output");
+  output.innerHTML = `
+    <div class="score">
+      <div class="label"><strong>${match.product_id}</strong></div>
+      <div>🧠 Sentiment: ${match.sentiment_label}</div>
+      <div>✅ Authenticity: ${Math.round(match.authenticity_score * 100)}%</div>
+      <div><b>Summary:</b> ${match.summary_text ?? "N/A"}</div>
+    </div>
+  `;
+}

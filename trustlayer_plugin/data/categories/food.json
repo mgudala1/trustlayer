@@ -1,0 +1,42 @@
+[
+  {
+    "product_id": "olipop_vintage_cola",
+    "source": "reddit",
+    "timestamp": "2025-06-21T13:00:00Z",
+    "feedback_text": "Tastes just like classic cola but healthier!",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.92,
+    "summary_text": "Healthier alternative to regular cola with great taste.",
+    "metadata": {
+      "username_hash": "sha256:def456",
+      "verified_purchase": true,
+      "upvotes": 15,
+      "permalink": "https://reddit.com/r/food/comments/abc"
+    },
+    "tags": [
+      "food",
+      "soda",
+      "healthy"
+    ]
+  },
+  {
+    "product_id": "kirkland_almond_butter",
+    "source": "amazon",
+    "timestamp": "2025-06-21T14:10:00Z",
+    "feedback_text": "Creamy and affordable, great for smoothies.",
+    "sentiment_label": "positive",
+    "authenticity_score": 0.88,
+    "summary_text": "Affordable, creamy almond butter ideal for smoothies.",
+    "metadata": {
+      "username_hash": "sha256:ghi789",
+      "verified_purchase": true,
+      "upvotes": 8,
+      "permalink": "https://amazon.com/review/123"
+    },
+    "tags": [
+      "food",
+      "nut_butter",
+      "breakfast"
+    ]
+  }
+]

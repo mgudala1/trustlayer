@@ -52,3 +52,19 @@
   color: #888;
   cursor: pointer;
 }
+
+.trust-feedback {
+  margin-top: 12px;
+  padding: 6px 12px;
+  background-color: #1a73e8;
+  color: white;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.trust-feedback:hover {
+  background-color: #155ab6;
+}

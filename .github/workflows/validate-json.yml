@@ -1,0 +1,24 @@
+name: Validate Category JSON
+
+on:
+  push:
+    paths:
+      - 'trustlayer_plugin/data/categories/*.json'
+      - 'trustlayer_plugin/data/product_feedback.schema.json'
+      - 'trustlayer_plugin/scripts/validate_json.py'
+      - '.github/workflows/validate-json.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install jsonschema
+      - name: Run JSON validation
+        run: python trustlayer_plugin/scripts/validate_json.py
