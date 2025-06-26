@@ -1,0 +1,217 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TrustAtom",
+  "description": "Atomic unit of structured user trust evidence for the TrustGraph",
+  "type": "object",
+  "required": [
+    "atom_id",
+    "product_id",
+    "source",
+    "timestamp",
+    "feedback_text",
+    "summary_text",
+    "sentiment_label",
+    "authenticity_score",
+    "confidence_score",
+    "tags",
+    "metadata",
+    "product_match_info"
+  ],
+  "properties": {
+    "atom_id": {
+      "type": "string",
+      "description": "Unique identifier for the Trust Atom (e.g., 'reddit_cerave_12345')"
+    },
+    "product_id": {
+      "type": "string",
+      "description": "Canonical product ID from the product registry (e.g., 'cerave_foaming_cleanser_12oz')"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["reddit", "youtube", "amazon", "forum", "twitter", "tiktok"],
+      "description": "Platform or source of the feedback"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of when the feedback was created"
+    },
+    "feedback_text": {
+      "type": "string",
+      "description": "Original user feedback text"
+    },
+    "summary_text": {
+      "type": "string",
+      "description": "AI-generated summary of the feedback"
+    },
+    "sentiment_label": {
+      "type": "string",
+      "enum": ["positive", "negative", "neutral", "mixed"],
+      "description": "Overall sentiment classification"
+    },
+    "authenticity_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score for the authenticity of the feedback (0.0-1.0)"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Overall confidence in the product match (0.0-1.0)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Extracted topics, attributes, or categories from the feedback"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["username_hash"],
+      "properties": {
+        "username_hash": {
+          "type": "string",
+          "description": "Anonymized hash of the username"
+        },
+        "upvotes": {
+          "type": "integer",
+          "description": "Number of upvotes or likes"
+        },
+        "permalink": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the original content"
+        },
+        "verified_purchase": {
+          "type": "boolean",
+          "description": "Whether the feedback is from a verified purchaser"
+        },
+        "comment_id": {
+          "type": "string",
+          "description": "Platform-specific identifier for the comment"
+        }
+      }
+    },
+    "product_match_info": {
+      "type": "object",
+      "required": ["match_method", "match_score"],
+      "properties": {
+        "match_method": {
+          "type": "string",
+          "enum": ["exact_alias", "fuzzy_brand_product", "semantic_similarity", "manual"],
+          "description": "Method used to match the product"
+        },
+        "match_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Confidence score for the product match (0.0-1.0)"
+        },
+        "alternative_matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "product_id": {
+                "type": "string",
+                "description": "Alternative product ID"
+              },
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Match score for this alternative"
+              }
+            }
+          },
+          "description": "Alternative product matches with lower confidence"
+        },
+        "context_factors": {
+          "type": "object",
+          "properties": {
+            "brand_mentioned": {
+              "type": "boolean",
+              "description": "Whether the brand was explicitly mentioned"
+            },
+            "product_type_mentioned": {
+              "type": "boolean",
+              "description": "Whether the product type was explicitly mentioned"
+            },
+            "identifier_mentioned": {
+              "type": "boolean",
+              "description": "Whether a product identifier (UPC, ASIN) was mentioned"
+            }
+          },
+          "description": "Contextual factors that influenced the match confidence"
+        }
+      },
+      "description": "Detailed information about the product matching process"
+    },
+    "source_specific_data": {
+      "type": "object",
+      "properties": {
+        "reddit_data": {
+          "type": "object",
+          "properties": {
+            "subreddit": {
+              "type": "string",
+              "description": "Subreddit where the comment was posted"
+            },
+            "post_title": {
+              "type": "string",
+              "description": "Title of the post containing the comment"
+            },
+            "post_score": {
+              "type": "integer",
+              "description": "Score of the parent post"
+            }
+          }
+        },
+        "youtube_data": {
+          "type": "object",
+          "properties": {
+            "video_title": {
+              "type": "string",
+              "description": "Title of the video"
+            },
+            "channel_name": {
+              "type": "string",
+              "description": "Name of the YouTube channel"
+            },
+            "video_views": {
+              "type": "integer",
+              "description": "Number of views on the video"
+            },
+            "timestamp_in_video": {
+              "type": "string",
+              "description": "Timestamp where the comment refers to (if applicable)"
+            }
+          }
+        },
+        "amazon_data": {
+          "type": "object",
+          "properties": {
+            "product_title": {
+              "type": "string",
+              "description": "Title of the product being reviewed"
+            },
+            "star_rating": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 5,
+              "description": "Star rating given by the reviewer (1-5)"
+            },
+            "review_title": {
+              "type": "string",
+              "description": "Title of the review"
+            }
+          }
+        }
+      },
+      "description": "Source-specific metadata that varies by platform"
+    }
+  }
+}

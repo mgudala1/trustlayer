@@ -1,0 +1,145 @@
+To elevate your current TrustLayer architecture and move toward the **TrustGraph**-based model described in your new documents, here’s a clear plan focusing on modular, scalable refactors and aligning your MVP to seed a robust knowledge graph.
+
+---
+
+## ✅ Step 1: **Adopt the Canonical Product Schema**
+
+Refactor your current `product_registry.json` format to follow this enriched schema:
+
+```json
+{
+  "product_id": "cerave_foaming_cleanser_12oz",
+  "canonical_name": "CeraVe Foaming Facial Cleanser",
+  "brand": "CeraVe",
+  "category": "skincare",
+  "type": "skincare",
+  "aliases": [
+    "cerave foaming cleanser",
+    "cerave face wash",
+    "cerave foaming cleanser 12oz",
+    "cerave cleanser"
+  ],
+  "identifiers": {
+    "asin": "B01N1LL62W",
+    "upc": "301871239012",
+    "openfoods_id": null,
+    "usda_id": null
+  },
+  "status": "active",
+  "verification_sources": ["amazon", "cerave.com"]
+}
+```
+
+📍 Action:
+
+* Migrate current registry entries to this format.
+* Rename it as `product_registry_detailed.json`.
+
+---
+
+## ✅ Step 2: **Upgrade Matching & Summarization Pipeline**
+
+Modify `summarise.py` and `resolve_product_id()` to:
+
+* Load this enriched registry format.
+* Match against both `canonical_name` and `aliases`.
+* Optionally include identifiers for future API enrichment.
+
+📍 Deliverables:
+
+* `resolve_product_id()` uses canonical+aliases.
+* Summary pipeline logs confidence scores and logs unmatched entries for graph expansion.
+
+---
+
+## ✅ Step 3: **Produce Trust Atoms**
+
+Trust Atoms = atomic units of structured user trust evidence.
+
+**Schema Example:**
+
+```json
+{
+  "product_id": "cerave_foaming_cleanser_12oz",
+  "source": "reddit",
+  "timestamp": "2025-06-25T00:00:00Z",
+  "feedback_text": "This Cerave cleanser worked great on my oily skin.",
+  "summary_text": "Works well for oily skin.",
+  "sentiment_label": "positive",
+  "authenticity_score": 0.93,
+  "tags": ["oily skin", "cleanser"],
+  "metadata": {
+    "username_hash": "sha256:anon",
+    "upvotes": 5,
+    "permalink": "https://reddit.com/example"
+  }
+}
+```
+
+📍 Save format:
+
+* One trust atom = one JSON object.
+* Output to: `trust_atoms/skincare.json` or `trust_atoms/reddit_cerave.json`.
+
+---
+
+## ✅ Step 4: **Seed TrustGraph from Atoms**
+
+From these JSONs, build edges in a graph database (or interim flat JSON-LD format), connecting:
+
+* Products ↔ Users ↔ Sentiment labels ↔ Tags ↔ Sources
+
+This can be MVP-optional, but structure now should enable it.
+
+---
+
+## ✅ Step 5: **Registry Builders per Category**
+
+Create category-wise builders for:
+
+* `build_food_registry.py` → from OpenFoodFacts + USDA
+* `build_skincare_registry.py` → from scraped Sephora/Ulta
+
+Each builder should:
+
+* Deduplicate canonical products
+* Autogenerate aliases from title, brand, variants
+* Attach identifiers (UPC, ASIN)
+
+---
+
+## 🗂️ Folder Structure Update
+
+```
+trustlayer_plugin/
+├── data/
+│   ├── registry/
+│   │   ├── product_registry_detailed.json
+│   │   └── registry_suggestions.json
+│   ├── trust_atoms/
+│   │   ├── skincare.json
+│   │   └── youtube.json
+│   └── product_feedback.schema.json
+```
+
+---
+
+## 📌 Summary of Changes
+
+| Component | Status         | Upgrade                                |
+| --------- | -------------- | -------------------------------------- |
+| Registry  | 🔴 Shallow     | ➕ Enrich w/ brand, type, alias, source |
+| Matching  | 🟡 Basic fuzzy | ➕ Multi-stage matcher w/ fallback      |
+| Summarise | 🟢 Functional  | ➕ Output trust atoms                   |
+| Overlay   | 🟢 Working     | ➕ Support ext\_score, match logs       |
+| Roadmap   | 🟡 Linear      | ➕ Modular TrustGraph phases            |
+
+---
+
+Let me know if you’d like:
+
+* Copilot prompt for refactoring `resolve_product_id`
+* Registry builder stub for OpenFoodFacts
+* Trust atom schema as `.schema.json` format
+
+Ready to proceed to implementation phase.
